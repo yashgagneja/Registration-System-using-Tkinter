@@ -19,7 +19,9 @@ def register_user():
     
     Label(screen1,text=" Registration Successful").pack()
 def login():
-    print("wait for sometime")
+    global screen2
+    screen2 = Toplevel(screen)
+    screen2.title("login")
 
 def register():
     global screen1
