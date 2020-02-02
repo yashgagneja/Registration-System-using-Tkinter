@@ -5,11 +5,13 @@ Spyder Editor
 This is a temporary script file.
 """
 from tkinter import *
+def login_verify():
+    print("currently off")
 
 def register_user():
     username_info=username.get()
     password_info=password.get()
-    file=open(username_info+".txt","w")
+    file=open(username_info,"w")
     file.write(username_info+"\n")
     file.write(password_info)
     file.close()
@@ -22,6 +24,22 @@ def login():
     global screen2
     screen2 = Toplevel(screen)
     screen2.title("login")
+    screen2.geometry("300x250")
+    Label(screen2,text="please enter details to login").pack()
+    Label(screen2,text="").pack()
+    global username_verify
+    global password_verify
+    username_verify=Stringvar()
+    password_verify=Stringvar()
+    Label(screen2,text="Username").pack()
+    username_entry1=Entry(screen2,textvariable=username_verify)
+    username_entry1.pack()
+    Label(screen2,text="").pack()
+    password_entry1=Entry(screen2,textvariable=password_verify)
+    password_verify.pack()
+    Label(screen2,text="")
+    Button(screen2,text="Login",command=login_verify).pack()
+    
 
 def register():
     global screen1
