@@ -5,8 +5,23 @@ Spyder Editor
 This is a temporary script file.
 """
 from tkinter import *
+import os
 def login_verify():
-    print("currently off")
+    username1=username_verify.get()
+    password1=password_verify.get()
+    username_entry1.delete(0,END)
+    password_entry1.delete(0,END)
+    list_of_files=os.listdir()
+    if username1==list_of_files:
+        file1=open(username1,"r")
+        verify=file1.read().splitlines()
+        if password1 in entry:
+            print("Login successful")
+        else:
+            print("password has not been recognised")
+    else:
+        print("user not found")
+    
 
 def register_user():
     username_info=username.get()
@@ -29,6 +44,8 @@ def login():
     Label(screen2,text="").pack()
     global username_verify
     global password_verify
+    global username_entry
+    global password_entry
     username_verify=Stringvar()
     password_verify=Stringvar()
     Label(screen2,text="Username").pack()
